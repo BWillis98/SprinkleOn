@@ -56,7 +56,7 @@ include 'config.php';
           $product_id = array();
           $product_quantity = array();
 
-          $result = $mysqli->query('SELECT * FROM pepperProducts');
+          $result = $mysqli->query('SELECT * FROM products');
           if($result === FALSE){
             die(mysql_error());
           }
@@ -65,7 +65,6 @@ include 'config.php';
 
             while($obj = $result->fetch_object()) {
 				if ($obj->typeOf === 'single')
-<<<<<<< HEAD
 				{	
 					$forPack = $mysqli->query("SELECT id FROM products WHERE typeOf = '12-pack' AND product_name = '" . $obj->product_name . "'")->fetch_row()[0];
 					$forPound = $mysqli->query("SELECT id FROM products WHERE typeOf = '50-pound' AND product_name = '" . $obj->product_name . "'")->fetch_row()[0];
@@ -88,40 +87,6 @@ include 'config.php';
 					echo '<p><a href="update-cart.php?action=add&id='.$obj->id.'"><input type="submit" value="Add to cart" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
 					echo '</div>';
 				}			
-=======
-				{
-				  $forPack = $mysqli->query('SELECT id FROM pepperProducts WHERE product_name = '.($obj->product_name).' AND typeOf = pack');
-				  $forLb = $mysqli->query('SELECT id FROM pepperProducts WHERE product_name = '.($obj->product_name).' AND typeOf = pound');
-				  echo '<div class="large-3 columns">';
-				  echo '<p><h3>'.$obj->product_name.'</h3></p>';
-				  echo '<img src="images/products/'.$obj->product_img_name.'"/>';
-				  echo '<p><strong>Price (Per Unit)</strong>: '.$currency.$obj->price.'</p>';
-				  echo '<p><a href="update-cart.php?action=add&id='.$obj->id.'"><input type="submit" value="Add Single" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
-				  echo '<p><a href="update-cart.php?action=add&id='.$forPack.'"><input type="submit" value="Add 12-pack" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
-				  echo '<p><a href="update-cart.php?action=add&id='.$forLb.'"><input type="submit" value="Add 50 pound" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
-				  echo '</div>';
-				}
-			}
-            $i++;
-          }
-		  
-		  $result2 = $mysqli->query('SELECT * FROM breadingProducts');
-          if($result2 === FALSE){
-            die(mysql_error());
-          }
-		  
-		  
-          if($result2){
-
-            while($obj = $result2->fetch_object()) {
-
-              echo '<div class="large-3 columns">';
-              echo '<p><h3>'.$obj->product_name.'</h3></p>';
-              echo '<img src="images/products/'.$obj->product_img_name.'"/>';
-              echo '<p><strong>Price (Per Unit)</strong>: '.$currency.$obj->price.'</p>';
-              echo '<p><a href="update-cart.php?action=addSingle&id='.$obj->id.'"><input type="submit" value="Add Single" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
-			  echo '</div>';
->>>>>>> b38c0c27eaedf39813c68c95ffdef7126bd86395
 			}
             $i++;
           }
