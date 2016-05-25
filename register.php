@@ -19,7 +19,7 @@ if (isset($_SESSION["username"])) {header ("location:index.php");}
   </head>
   <body>
 
-    <nav class="top-bar" data-topbar role="navigation">
+   <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
           <h1><a href="index.php">Sprinkle On Seasoning</a></h1>
@@ -32,10 +32,16 @@ if (isset($_SESSION["username"])) {header ("location:index.php");}
         <ul class="right">
           <li><a href="products.php">Products</a></li>
           <li><a href="cart.php">View Cart</a></li>
-          <li><a href="orders.php">My Orders</a></li>
           <li><a href="contact.php">Contact</a></li>
           <?php
-
+		  if (isset($_SESSION['type']))
+		  {
+			  if ($_SESSION['type'] == 'admin')
+			  {
+				  echo '<li><a href="orders.php">My Orders</a></li>';
+			  } 
+		  }
+		 
           if(isset($_SESSION['username'])){
             echo '<li><a href="account.php">My Account</a></li>';
             echo '<li><a href="logout.php">Log Out</a></li>';

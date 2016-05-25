@@ -33,10 +33,16 @@ include 'config.php';
         <ul class="right">
           <li><a href="products.php">Products</a></li>
           <li><a href="cart.php">View Cart</a></li>
-          <li class="active"><a href="orders.php">My Orders</a></li>
           <li><a href="contact.php">Contact</a></li>
           <?php
-
+		  if (isset($_SESSION['type']))
+		  {
+			  if ($_SESSION['type'] == 'admin')
+			  {
+				  echo '<li class="active"><a href="orders.php">My Orders</a></li>';
+			  } 
+		  }
+		 
           if(isset($_SESSION['username'])){
             echo '<li><a href="account.php">My Account</a></li>';
             echo '<li><a href="logout.php">Log Out</a></li>';
@@ -76,7 +82,6 @@ include 'config.php';
               //echo '<img src="images/products/sports_band.jpg">';
               //echo '</div>';
               echo '<p><hr></p>';
-
             }
           }
         ?>

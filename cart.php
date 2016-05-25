@@ -31,11 +31,17 @@ include 'config.php';
       <!-- Right Nav Section -->
         <ul class="right">
           <li><a href="products.php">Products</a></li>
-          <li class="active"><a href="cart.php">View Cart</a></li>
-          <li><a href="orders.php">My Orders</a></li>
+          <li class='active'><a href="cart.php">View Cart</a></li>
           <li><a href="contact.php">Contact</a></li>
           <?php
-
+		  if (isset($_SESSION['type']))
+		  {
+			  if ($_SESSION['type'] == 'admin')
+			  {
+				  echo '<li><a href="orders.php">My Orders</a></li>';
+			  } 
+		  }
+		 
           if(isset($_SESSION['username'])){
             echo '<li><a href="account.php">My Account</a></li>';
             echo '<li><a href="logout.php">Log Out</a></li>';
@@ -86,7 +92,7 @@ include 'config.php';
 				}else{
 					echo '<td>'.$obj->product_name.' '.$obj->typeOf.'</td>';
 				}
-                echo '<td>'.$quantity.'&nbsp;<a class="button [secondary success alert]" style="padding:5px;" href="update-cart.php?action=add&id='.$product_id.'">+</a>&nbsp;<a class="button alert" style="padding:5px;" href="update-cart.php?action=remove&id='.$product_id.'">-</a></td>';
+                echo '<td>'.$quantity.'<a class="button [secondary success alert]" style="padding:5px;" href="update-cart.php?action=add&id='.$product_id.'">+</a>&nbsp;<a class="button alert" style="padding:5px;" href="update-cart.php?action=remove&id='.$product_id.'">-</a></td>';
 
 				echo '<td>'.$currency.sprintf('%01.2f', $cost).'</td>';
 				//echo '<td>'.$currency.$cost.'</td>';
@@ -103,7 +109,7 @@ include 'config.php';
           echo '<tr>';
           echo '<td colspan="4" align="right"><a href="update-cart.php?action=empty" class="button alert">Empty Cart</a>&nbsp;<a href="products.php" class="button [secondary success alert]">Continue Shopping</a>';
           if(isset($_SESSION['username'])) {
-            echo '<a href="orders-update.php"><button style="float:right;">COD</button></a>';
+            echo '<a href="orders-update.php"><button style="float:right;">Checkout</button></a>';
           }
 
           else {
