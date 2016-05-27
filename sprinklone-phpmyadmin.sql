@@ -19,8 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `Sprinkle On`
 --
-CREATE DATABASE IF NOT EXISTS `sprinkleon` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `sprinkleon`;
+-- CREATE DATABASE IF NOT EXISTS `kingmd23_sprinkleon` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `kingmd23_sprinkleon`;
 
 -- --------------------------------------------------------
 
@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`fname`, `lname`, `address`, `city`, `pin`, `email`, `password`, `type`) VALUES
-('Steve', 'Jobs', 'Infinite Loop', 'California', 95014, 'sjobs@apple.com', 'steve', 'admin');
+('King', 'Wholesale', 'Infinite Loop', 'Illinois', 95014, 'kingwholesaleinc@gmail.com', 'temporary', 'admin');
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

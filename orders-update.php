@@ -19,9 +19,10 @@ if(isset($_SESSION['cart'])) {
 
         $cost = $obj->price * $quantity;
 
-        $user = $_SESSION["username"];
+        $user = $_SESSION["username"]; //username is email
 
-        $query = $mysqli->query("INSERT INTO orders (product_code, product_name, product_desc, price, units, total, email) VALUES('$obj->product_code', '$obj->product_name', '$obj->product_desc', $obj->price, $quantity, $cost, '$user')");
+        $query = $mysqli->query("INSERT INTO orders (product_name, price, units, total, email) 
+			VALUES('".$obj->product_code."', '".$obj->product_name."', ".$obj->price.", ".$quantity.", ".$cost.", '".$user."')");
 
         if($query){
           $newqty = $obj->qty - $quantity;

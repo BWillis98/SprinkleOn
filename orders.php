@@ -61,7 +61,7 @@ include 'config.php';
 
     <div class="row" style="margin-top:10px;">
       <div class="large-12">
-        <h3>My COD Orders</h3>
+        <h3>Orders</h3>
         <hr>
 
         <?php
