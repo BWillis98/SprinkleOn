@@ -67,8 +67,9 @@ include 'config.php';
           }
 
           if($result){
-
+			$numberOfProducts = 0;
             while($obj = $result->fetch_object()) {
+				$numberOfProducts++;
 				if ($obj->typeOf === 'single')
 				{	
 					$forPack = $mysqli->query("SELECT id FROM products WHERE typeOf = '12-pack' AND product_name = '" . $obj->product_name . "'")->fetch_row()[0];
@@ -76,7 +77,7 @@ include 'config.php';
 
 					echo '<div class="large-3 columns">';
 					echo '<p><h3>'.$obj->product_name.'</h3></p>';
-					echo '<img src="images/products/'.$obj->product_img_name.'"/>';
+					echo '<img src="images/'.$obj->product_img_name.'"/>';
 					echo '<p><strong>Price (Per Unit)</strong>: '.$currency.$obj->price.'</p>';
 					echo '<p><a href="update-cart.php?action=add&id='.$obj->id.'"><input type="submit" value="Add Single" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
 					echo '<p><a href="update-cart.php?action=add&id='.$forPack.'"><input type="submit" value="Add 12-pack" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
@@ -87,11 +88,18 @@ include 'config.php';
 				{
 					echo '<div class="large-3 columns">';
 					echo '<p><h3>'.$obj->product_name.'</h3></p>';
-					echo '<img src="images/products/'.$obj->product_img_name.'"/>';
+					echo '<img src="images/'.$obj->product_img_name.'"/>';
 					echo '<p><strong>Price</strong>: '.$currency.$obj->price.'</p>';
 					echo '<p><a href="update-cart.php?action=add&id='.$obj->id.'"><input type="submit" value="Add to cart" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
 					echo '</div>';
-				}			
+				}
+				if ($numberOfProducts % 4 == 0)
+				{
+					echo '</div>
+						</div>
+						<div class="row" style="margin-top:10px;">
+							<div class="small-12">';
+				}
 			}
             $i++;
           }

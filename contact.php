@@ -58,7 +58,9 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
     <div class="row" style="margin-top:30px;">
       <div class="small-12">
 
-        <p>Wanna get in touch. Email us at <a href="mailto:kingwholesaleinc@gmail.com">kingwholesaleinc@gmail.com</a></p>
+        <h2><b>Wanna get in touch?</b></h2> 
+		<h6>Email us at <a href="mailto:kingwholesaleinc@gmail.com">kingwholesaleinc@gmail.com</a></h6>
+		<h6>Or give us a call at 312-404-8447</h6>
 
         <footer>
            <p style="text-align:center; font-size:0.8em;">&copy; Sprinkle On Seasoning. All Rights Reserved.</p>
