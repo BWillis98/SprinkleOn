@@ -11,5 +11,3 @@ A PHP e-commerce web application.
 6. Once this is done, go to the url of your website and it should be up and running.
 
 Enjoy!
-
-Currently only COD (Cash on Delivery), has been implemented. Working on email delivery on purchase and payment gateway. Stay tuned for the updates.
