@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `Sprinkle On`
 --
--- CREATE DATABASE IF NOT EXISTS `kingmd23_sprinkleon` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+CREATE DATABASE IF NOT EXISTS `kingmd23_sprinkleon` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `kingmd23_sprinkleon`;
 
 -- --------------------------------------------------------
@@ -81,6 +81,23 @@ INSERT INTO `products` (`product_name`, `product_img_name`, `price`, `typeOf`) V
 --
 -- Table structure for table `users`
 --
+
+CREATE TABLE IF NOT EXISTS `payments` (
+
+ `id` int(6) NOT NULL AUTO_INCREMENT,
+
+ `txnid` varchar(20) NOT NULL,
+
+ `payment_amount` decimal(7,2) NOT NULL,
+
+ `payment_status` varchar(25) NOT NULL,
+
+ `itemid` varchar(25) NOT NULL,
+ `createdtime` datetime NOT NULL,
+
+ PRIMARY KEY (`id`)
+
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
